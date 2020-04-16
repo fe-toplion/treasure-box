@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>717</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-color: #5cc2f1;
+            height: 100%;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        ul {
+            list-style: none;
+            position: relative;
+            width: 260px;
+            height: 260px;
+        }
+
+        ul li {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        ul>li>img {
+            display: block;
+            width: 100%;
+        }
+
+
+        .rightMove {
+            -webkit-animation: moveRight 0.5s forwards;
+            animation: moveRight 0.5s forwards;
+            -webkit-transform-origin: 50% 300%;
+            transform-origin: 50% 300%;
+        }
+
+        .leftMove {
+            -webkit-animation: moveLeft 0.5s forwards;
+            animation: moveLeft 0.5s forwards;
+            -webkit-transform-origin: 50% 300%;
+            transform-origin: 50% 300%;
+        }
+
+        @-webkit-keyframes moveRight {
+            to {
+                opacity: 0;
+                -webkit-transform: rotate3d(0, 0, 1, 20deg);
+                transform: rotate3d(0, 0, 1, 20deg);
+            }
+        }
+
+        @keyframes moveRight {
+            to {
+                opacity: 0;
+                -webkit-transform: rotate3d(0, 0, 1, 20deg);
+                transform: rotate3d(0, 0, 1, 20deg);
+            }
+        }
+
+        @-webkit-keyframes moveLeft {
+            to {
+                opacity: 0;
+                -webkit-transform: rotate3d(0, 0, 1, -20deg);
+                transform: rotate3d(0, 0, 1, -20deg);
+            }
+        }
+
+        @keyframes moveLeft {
+            to {
+                opacity: 0;
+                -webkit-transform: rotate3d(0, 0, 1, -20deg);
+                transform: rotate3d(0, 0, 1, -20deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="cards">
+            <li><img src="img/1.png" alt=""></li>
+            <li><img src="img/2.png" alt=""></li>
+            <li><img src="img/3.png" alt=""></li>
+            <li><img src="img/4.png" alt=""></li>
+            <li><img src="img/5.png" alt=""></li>
+            <li><img src="img/6.png" alt=""></li>
+        </ul>
+
+    </div>
+    <script src="//static.qiyi.com/js/html5/js/lib/lib.2.0.5.min.js"></script>
+    <script src="./js/cardPlay.js"></script>
+    <script>
+        var cards = document.getElementById('cards');
+        var card = new CardPlay(cards, {
+            acceptClass: 'rightMove', // 向右滑动时，card滑动动画样式类名
+            rejectClass: 'leftMove' // 向左滑动时，card滑动动画样式类名
+        });
+    </script>
+</body>
+
+</html>
